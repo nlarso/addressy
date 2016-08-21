@@ -3,12 +3,20 @@
   <head>
     <title>AddressBook</title>
     <%= csrf_meta_tags %>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <nav class='navbar navbar-fixed-top navbar-dark bg-inverse'>
+      <%= link_to 'AddressBook', '#', class: 'navbar-brand' %>
+    </nav>
+    <div class='container'>
+      <%= yield %>
+    </div>
   </body>
 </html>

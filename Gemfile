@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'bootstrap'
+gem 'font-awesome-sass'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'pg'
@@ -19,6 +21,10 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console'
+end
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.1.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
