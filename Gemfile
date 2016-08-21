@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'bootstrap'
+gem 'ffaker'
 gem 'font-awesome-sass'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
