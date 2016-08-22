@@ -96,6 +96,7 @@ class AddressBook extends React.Component {
               </div>
               <div className="list-group list-group-flush">
                 <ContactsList
+                  activeContact={this.state.displayedContact}
                   onContactClick={this.onContactClick}
                   contacts={this.state.contacts}
                 />
