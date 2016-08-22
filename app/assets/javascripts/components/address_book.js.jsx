@@ -69,7 +69,10 @@ class AddressBook extends React.Component {
           <div className="col-xs-5">
             <div className="card">
               <div className="card-header text-xs-right">
-                <button className="btn btn-primary btn-sm" data-target="#contact-form-modal" data-toggle="modal">
+                <button className="btn btn-primary btn-sm"
+                  data-target="#contact-form-modal"
+                  data-toggle="modal"
+                >
                   <i className="fa fa-plus" />
                   New Contact
                 </button>
@@ -83,7 +86,10 @@ class AddressBook extends React.Component {
             </div>
           </div>
           <div className="col-xs-7">
-            <ContactCard contact={this.state.displayedContact} />
+            <ContactCard
+              onEditContactClick={this.onEditContactClick}
+              contact={this.state.displayedContact}
+            />
           </div>
         </div>
         <ContactFormModal
