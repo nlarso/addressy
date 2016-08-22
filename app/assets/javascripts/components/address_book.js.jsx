@@ -6,6 +6,7 @@ class AddressBook extends React.Component {
   constructor(props) {
     super(props);
     this.onContactClick = this.onContactClick.bind(this)
+    this.dismissModal = this.dismissModal.bind(this)
     this.onFormSubmit = this.onFormSubmit.bind(this)
 
     this.state = {
@@ -18,6 +19,11 @@ class AddressBook extends React.Component {
 
   onContactClick(contact) {
     this.setState({displayedContact: contact});
+  }
+
+  dismissModal() {
+    this.setState({contact: { name: null }});
+    $('#contact-form-modal').modal('hide')
   }
 
   onFormSubmit(contact) {
@@ -72,6 +78,7 @@ class AddressBook extends React.Component {
           contact={this.state.contact}
           errors={this.state.errors}
           onFormSubmit={this.onFormSubmit}
+          onDismissModal={this.dismissModal}
         />
       </div>
     );

@@ -1,6 +1,7 @@
 const propTypes = {
   contact: React.PropTypes.object,
   errors: React.PropTypes.array,
+  onDismissModal: React.PropTypes.func,
   onFormSubmit: React.PropTypes.func
 };
 
@@ -63,7 +64,7 @@ class ContactFormModal extends React.Component {
                 <h4 className="modal-title">New Contact</h4>
               </div>
               <div className="col-md-1">
-                <button className="close" data-dismiss="modal">
+                <button className="close" onClick={() => {this.props.onDismissModal()}}>
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
