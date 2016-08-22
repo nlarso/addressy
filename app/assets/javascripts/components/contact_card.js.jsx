@@ -25,17 +25,17 @@ class ContactCard extends React.Component {
         <div className="list-group list-group-flush">
           <div className="list-group-item">
             <h5 className="list-group-item-heading">Email</h5>
-            <div className="list-group-item-text">{contact.email}</div>
+            <div className="list-group-item-text">{contact.email || '-'}</div>
           </div>
           <div className="list-group-item">
             <h5 className="list-group-item-heading">Phone</h5>
-            <div className="list-group-item-text">{contact.phone}</div>
+            <div className="list-group-item-text">{contact.phone || '-'}</div>
           </div>
           <div className="list-group-item">
             <h5 className="list-group-item-heading">Address</h5>
             <div className="list-group-item-text">
               <address>
-                {contact.address}
+                {contact.address || '-'}
                 <br />
                 {_.compact([contact.city, contact.state]).join(', ')} {contact.postalCode}
               </address>
