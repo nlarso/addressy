@@ -1,5 +1,6 @@
 const propTypes = {
   contact: React.PropTypes.object,
+  onEditContactClick: React.PropTypes.func
 };
 
 class ContactCard extends React.Component {
@@ -39,7 +40,15 @@ class ContactCard extends React.Component {
               </address>
             </div>
           </div>
-
+        </div>
+        <div className="card-footer text-xs-right">
+          <button
+            className="btn btn-success"
+            onClick={() => {this.props.onEditContactClick()}}
+          >
+            <i className="fa fa-pencil" />
+            Edit
+          </button>
         </div>
       </div>
     );

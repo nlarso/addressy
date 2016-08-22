@@ -6,6 +6,7 @@ class AddressBook extends React.Component {
   constructor(props) {
     super(props);
     this.onContactClick = this.onContactClick.bind(this)
+    this.onEditContactClick = this.onEditContactClick.bind(this)
     this.dismissModal = this.dismissModal.bind(this)
     this.onFormSubmit = this.onFormSubmit.bind(this)
 
@@ -21,6 +22,11 @@ class AddressBook extends React.Component {
     this.setState({displayedContact: contact});
   }
 
+  onEditContactClick() {
+    this.setState({contact: _.clone(this.state.displayedContact)});
+    $('#contact-form-modal').modal('show')
+  }
+
   dismissModal() {
     this.setState({contact: { name: null }});
     $('#contact-form-modal').modal('hide')
@@ -28,18 +34,24 @@ class AddressBook extends React.Component {
 
   onFormSubmit(contact) {
     this.setState({errors: null});
-    const params = {
-      contact: _.mapKeys(contact, (value, key) => { return _.snakeCase(key)})
-    }
+    const method = contact.id ? 'PUT' : 'POST';
+    const url = contact.id ? `/contacts/${contact.id}.json` : '/contacts.json';
     $.ajax({
-      type: 'POST',
-      url: '/contacts.json',
-      data: params,
-      success: (contact) => {
-        const contacts = _.clone(this.state.contacts);
-        contacts.unshift(contact);
-        this.setState({contacts, displayedContact: contact, contact: { name: null }});
-        $('#contact-form-modal').modal('hide')
+      type: method,
+      url: url,
+      data: {
+        contact: _.mapKeys(contact, (value, key) => { return _.snakeCase(key)})
+      },
+      success: (data) => {
+        let contacts = _.clone(this.state.contacts);
+        let index = contacts.indexOf(_.find(contacts, {'id':contact.id}));
+        if (index >= 0) {
+          contacts[index] = data;
+        } else {
+          contacts.unshift(data);
+        }
+        this.setState({contacts, displayedContact: data});
+        this.dismissModal()
       },
       error: (data) => {
         if (data.status == 422) {

@@ -61,7 +61,9 @@ class ContactFormModal extends React.Component {
           <div className="modal-content">
             <div className="modal-header">
               <div className="col-md-11">
-                <h4 className="modal-title">New Contact</h4>
+                <h4 className="modal-title">
+                  { _.isNumber(contact.id) ? 'Edit' : 'New'} Contact
+                </h4>
               </div>
               <div className="col-md-1">
                 <button className="close" onClick={() => {this.props.onDismissModal()}}>
@@ -153,7 +155,7 @@ class ContactFormModal extends React.Component {
                   <input
                     name="state"
                     className="form-control"
-                    value={contact.postal_code || ''}
+                    value={contact.postalCode || ''}
                     onChange={this.onInputChange}
                     placeholder="84770"
                   />
@@ -161,7 +163,9 @@ class ContactFormModal extends React.Component {
               </div>
             </div>
             <div className="modal-footer">
-              <button className="btn btn-primary" onClick={this.onFormSubmit}>Add Contact</button>
+              <button className="btn btn-primary" onClick={this.onFormSubmit}>
+                {_.isNumber(contact.id) ? 'Save' : 'Add' } Contact
+              </button>
             </div>
           </div>
         </div>
