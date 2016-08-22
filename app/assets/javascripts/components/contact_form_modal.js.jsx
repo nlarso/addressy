@@ -153,7 +153,7 @@ class ContactFormModal extends React.Component {
                 <div className="col-xs-3">
                   <label>Postal Code</label>
                   <input
-                    name="state"
+                    name="postalCode"
                     className="form-control"
                     value={contact.postalCode || ''}
                     onChange={this.onInputChange}
