@@ -10,8 +10,8 @@ class ContactCard extends React.Component {
 
     if (_.isEmpty(contact)) {
       return (
-        <div>
-          <h1>Select a Contact</h1>
+        <div className="contact-heading">
+          <h1 className="text-xs-center text-muted">Select a Contact</h1>
         </div>
       );
     }
