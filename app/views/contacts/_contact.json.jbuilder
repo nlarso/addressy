@@ -11,3 +11,7 @@ json.extract!(contact, *[
   :state,
   :title
 ])
+
+if contact.errors.any?
+  json.errors contact.errors.messages
+end
