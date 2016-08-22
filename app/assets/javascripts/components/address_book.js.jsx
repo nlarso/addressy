@@ -7,6 +7,7 @@ class AddressBook extends React.Component {
     super(props);
     this.onContactClick = this.onContactClick.bind(this)
     this.onEditContactClick = this.onEditContactClick.bind(this)
+    this.deleteContact = this.deleteContact.bind(this)
     this.dismissModal = this.dismissModal.bind(this)
     this.onFormSubmit = this.onFormSubmit.bind(this)
 
@@ -25,6 +26,22 @@ class AddressBook extends React.Component {
   onEditContactClick() {
     this.setState({contact: _.clone(this.state.displayedContact)});
     $('#contact-form-modal').modal('show')
+  }
+
+  deleteContact(contact) {
+    $.ajax({
+      type: 'DELETE',
+      url: `/contacts/${contact.id}.json`  ,
+      data: {},
+      success: (data) => {
+        let contacts = _.clone(this.state.contacts);
+        _.remove(contacts, _.find(contacts, {'id':contact.id}));
+        this.setState({contacts, displayedContact: {}});
+      },
+      error: (data) => {
+        console.log(data)
+      }
+    });
   }
 
   dismissModal() {
@@ -88,6 +105,7 @@ class AddressBook extends React.Component {
           <div className="col-xs-7">
             <ContactCard
               onEditContactClick={this.onEditContactClick}
+              onDeleteContactClick={this.deleteContact}
               contact={this.state.displayedContact}
             />
           </div>

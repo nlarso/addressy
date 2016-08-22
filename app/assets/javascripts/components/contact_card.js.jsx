@@ -1,6 +1,8 @@
 const propTypes = {
   contact: React.PropTypes.object,
   onEditContactClick: React.PropTypes.func
+  onEditContactClick: React.PropTypes.func,
+  onDeleteContactClick: React.PropTypes.func
 };
 
 class ContactCard extends React.Component {
@@ -43,11 +45,18 @@ class ContactCard extends React.Component {
         </div>
         <div className="card-footer text-xs-right">
           <button
-            className="btn btn-success"
+            className="btn btn-primary btn-sm"
             onClick={() => {this.props.onEditContactClick()}}
           >
             <i className="fa fa-pencil" />
             Edit
+          </button>
+          <button
+            className="btn btn-danger btn-sm"
+            onClick={() => {this.props.onDeleteContactClick(contact)}}
+          >
+            <i className="fa fa-trash" />
+            Delete
           </button>
         </div>
       </div>
