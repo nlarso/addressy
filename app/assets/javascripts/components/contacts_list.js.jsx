@@ -17,6 +17,7 @@ class ContactsList extends React.Component {
             >
               <h5 className="list-group-item-heading">{contact.name}</h5>
               <div className="list-group-item-text">{contact.title}</div>
+              <div className="list-group-icon"><i className="fa fa-chevron-right" /></div>
             </div>
           );
         })}

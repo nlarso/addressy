@@ -1,3 +1,21 @@
 body {
   padding-top: 5rem;
 }
+
+.card {
+  button {
+    margin-right: 5px;
+    i {
+      margin-right: 5px;
+    }
+  }
+  .list-group-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    font-size: 14px;
+    line-height: 14px;
+    margin-top: -7px;
+    color: #ccc;
+  }
+}
