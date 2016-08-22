@@ -62,7 +62,7 @@ class ContactFormModal extends React.Component {
             <div className="modal-header">
               <div className="col-md-11">
                 <h4 className="modal-title">
-                  { _.isNumber(contact.id) ? 'Edit' : 'New'} Contact
+                  {contact.id ? 'Edit' : 'New'} Contact
                 </h4>
               </div>
               <div className="col-md-1">
@@ -163,8 +163,11 @@ class ContactFormModal extends React.Component {
               </div>
             </div>
             <div className="modal-footer">
-              <button className="btn btn-primary" onClick={this.onFormSubmit}>
-                {_.isNumber(contact.id) ? 'Save' : 'Add' } Contact
+              <button className="btn btn-primary btn-sm" onClick={this.onFormSubmit}>
+                {contact.id ? 'Update' : 'Add' }
+              </button>
+              <button className="btn btn-danger btn-sm" onClick={() => {this.props.onDismissModal()}}>
+                Cancel
               </button>
             </div>
           </div>

@@ -1,6 +1,5 @@
 const propTypes = {
   contact: React.PropTypes.object,
-  onEditContactClick: React.PropTypes.func
   onEditContactClick: React.PropTypes.func,
   onDeleteContactClick: React.PropTypes.func
 };
