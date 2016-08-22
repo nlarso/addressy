@@ -20,6 +20,7 @@ class AddressBook extends React.Component {
   }
 
   onContactClick(contact) {
+    $(window).scrollTop(0);
     this.setState({displayedContact: contact});
   }
 
