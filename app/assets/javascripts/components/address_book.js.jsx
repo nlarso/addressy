@@ -47,7 +47,7 @@ class AddressBook extends React.Component {
 
   dismissModal() {
     $('#contact-form-modal').modal('hide')
-    this.setState({contact: { name: null }});
+    this.setState({contact: { name: null }, errors: {}});
   }
 
   onFormSubmit(contact) {
